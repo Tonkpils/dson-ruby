@@ -4,7 +4,7 @@ module DSON
   class Tokenizer
 
     STRING = /"(?:[^"\\]|\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4}))*"/
-    NUMBER = /-?(?:0|[1-9]\d*)(?:\.\d+)?(?:very?\d+)?/
+    NUMBER = /-?(?:0|[1-9]\d*)(?:\.\d+)?(?:(?:very|VERY)[+-]?\d+)?/
     TRUE   = /true/
     FALSE  = /false/
     NULL   = /null/

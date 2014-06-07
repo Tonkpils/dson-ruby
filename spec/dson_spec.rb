@@ -24,4 +24,14 @@ describe DSON do
     expect(DSON.parse(exponent)).to eq({"foo" => 42e3})
   end
 
+  it 'parses capitalized exponential value' do
+    exponent = 'such "foo" is 42VERY3 wow'
+    expect(DSON.parse(exponent)).to eq({"foo" => 42e3})
+  end
+
+  it 'parses negative exponential values' do
+    exponent = 'such "foo" is 42very-3 wow'
+    expect(DSON.parse(exponent)).to eq({"foo" => 42e-3})
+  end
+
 end

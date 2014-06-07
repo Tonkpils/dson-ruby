@@ -40,7 +40,7 @@ rule
     | literal { @handler.scalar val[0] }
     ;
   literal
-    | NUMBER { n = val[0]; result = n.count('.') > 0 || n.include?('very') ? n.gsub('very', 'e').to_f : n.to_i }
+    | NUMBER { n = val[0]; result = n.count('.') > 0 || n.match(/very/i) ? n.gsub(/very/i, 'e').to_f : n.to_i }
     | TRUE   { result = true }
     | FALSE  { result = false }
     | NULL   { result = nil }

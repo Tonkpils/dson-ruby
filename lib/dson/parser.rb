@@ -194,22 +194,22 @@ Racc_debug_parser = false
 # reduce 9 omitted
 
 def _reduce_10(val, _values, result)
- @handler.start_array  
+ @handler.start_array
     result
 end
 
 def _reduce_11(val, _values, result)
- @handler.end_array    
+ @handler.end_array
     result
 end
 
 def _reduce_12(val, _values, result)
- @handler.start_object 
+ @handler.start_object
     result
 end
 
 def _reduce_13(val, _values, result)
- @handler.end_object   
+ @handler.end_object
     result
 end
 
@@ -226,34 +226,34 @@ end
 # reduce 19 omitted
 
 def _reduce_20(val, _values, result)
- @handler.scalar val[0] 
+ @handler.scalar val[0]
     result
 end
 
 # reduce 21 omitted
 
 def _reduce_22(val, _values, result)
- n = val[0]; result = n.count('.') > 0 || n.include?('very') ? n.gsub('very', 'e').to_f : n.to_i 
+ n = val[0]; result = n.count('.') > 0 || n.match(/very/i) ? n.gsub(/very/i, 'e').to_f : n.to_i
     result
 end
 
 def _reduce_23(val, _values, result)
- result = true 
+ result = true
     result
 end
 
 def _reduce_24(val, _values, result)
- result = false 
+ result = false
     result
 end
 
 def _reduce_25(val, _values, result)
- result = nil 
+ result = nil
     result
 end
 
 def _reduce_26(val, _values, result)
- @handler.scalar val[0].gsub(/^"|"$/, '') 
+ @handler.scalar val[0].gsub(/^"|"$/, '')
     result
 end
 
@@ -262,4 +262,4 @@ def _reduce_none(val, _values, result)
 end
 
   end   # class Parser
-  end   # module DSON
+end   # module DSON
